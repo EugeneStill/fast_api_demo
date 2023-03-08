@@ -1,8 +1,10 @@
+import sys
+sys.path.append("..")
 from fastapi import Body, Response, status, HTTPException, Depends, APIRouter
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from helpers import models, schemas, utils, oauth2
-from helpers.database import engine, get_db
+from ..helpers import models, schemas, utils, oauth2
+from ..helpers.database import engine, get_db
 from typing import Optional, List
 router = APIRouter(
     prefix="/login",

@@ -1,7 +1,9 @@
+import sys
+sys.path.append("..")
 from fastapi import Body, Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
-from helpers import models, schemas, utils
-from helpers.database import engine, get_db
+from ..helpers import models, schemas, utils
+from ..helpers.database import engine, get_db
 from typing import Optional, List
 
 router = APIRouter(
