@@ -14,6 +14,10 @@ router = APIRouter(
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut) # can set deafult status code return in the decorator
 def create_users(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    existing_user = db.query(models.User).filter(models.User.email == user.email).first()
+    if existing_user:
+      raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="User id {} already exists".format(user.email))
+
     hashed_pwd = utils.hash(user.password)
     user.password = hashed_pwd
     new_user = models.User(**user.dict())
