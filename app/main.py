@@ -1,6 +1,8 @@
+import sys
+sys.path.append("..")
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import post, user, auth, vote
+from .routers import post, user, auth, vote
 
 # do not need this line if we are going to use alembic to upgrade database changes
 # models.Base.metadata.create_all(bind=engine)
