@@ -3,7 +3,8 @@ name: Build and Deploy Code
 on:
   pull_request:
     branches:
-      - "main"
+      - main
+    types: [closed]
 
 jobs:
   if: ${{ github.event.pull_request.merged }}
