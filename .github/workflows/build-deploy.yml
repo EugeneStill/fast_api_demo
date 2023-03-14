@@ -76,14 +76,7 @@ jobs:
 #      name: production
 #    steps:
 #      - name: pulling git repo
-#        uses: actions/checkout@v2
-#      - name: deploying to Heroku
-#        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-#        with:
-#          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-#          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-#          heroku_email: ${{secrets.HEROKU_EMAIL}}
-#
+#        uses: actions/checkout@v3
 #      - name: deploy to ubuntu server
 #        uses: appleboy/ssh-action@master
 #        with:
@@ -94,7 +87,7 @@ jobs:
 #            cd app/src
 #            git pull
 #            echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart api
-#      # login to our ubuntu
-#      # cd /app/src
-#      # git pull
-#      # systemctl restart api
+      # login to our ubuntu
+      # cd /app/src
+      # git pull
+      # systemctl restart api
